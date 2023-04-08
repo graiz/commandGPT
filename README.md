@@ -1,5 +1,7 @@
 # Shell Command Plugin - CommandGPT
 
+<img src="https://github.com/graiz/commandGPT/blob/main/.well-known/logo.png" alt="Command GPT" title="Command GPT Logo" width="200" height="200">
+
 The CommandGPT Plugin is a simple Flask-based API that allows users to execute shell commands and receive the results in JSON format. The plugin listens on `localhost:3333` and provides an endpoint `/run` that accepts a shell command as a query parameter and returns the output of the command as a JSON response. This is meant to be used with the OpenAI ChatGPT plug-in system.
 
 The software is currently ALPHA so use it at your own risk.
