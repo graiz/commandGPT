@@ -1,0 +1,49 @@
+openapi: 3.0.1
+info:
+  title: Shell Command Plugin
+  description: A plugin that allows the user to execute shell commands using ChatGPT.
+  version: 'v1'
+servers:
+  - url: http://localhost:3333
+paths:
+  /run:
+    get:
+      operationId: runCommand
+      summary: Execute a shell command
+      parameters:
+        - name: command
+          in: query
+          description: The shell command to execute
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runCommandResponse'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+components:
+  schemas:
+    runCommandResponse:
+      type: object
+      properties:
+        output:
+          type: array
+          items:
+            type: string
+          description: The output of the shell command as a list of lines.
+    errorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: The error message, if any.
+

@@ -1,0 +1,19 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Shell Command Plugin",
+  "name_for_model": "shell",
+  "description_for_human": "Plugin for executing shell commands. You can run commands and view their output.",
+  "description_for_model": "Plugin for executing shell commands. You can run commands and view their output.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "http://localhost:3333/.well-known/openapi.yaml",
+    "is_user_authenticated": false
+  },
+  "logo_url": "http://localhost:3333/.well-known/logo.png",
+  "contact_email": "graiz@raiz.vc",
+  "legal_info_url": "https://www.gregraiz.com"
+}
+
