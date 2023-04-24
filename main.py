@@ -13,10 +13,11 @@ well_known_dir = os.path.join(app.root_path, '.well-known')
 def well_known(filename):
     return send_from_directory(well_known_dir, filename)
 
-
-@app.route('/run', methods=['GET'])
+@app.route('/run', methods=['POST'])
 def run_command():
-    command = request.args.get('command')
+    data = request.get_json()
+    command = data.get('command')
+
     if not command:
         return jsonify({'error': 'No command provided'}), 400
 
@@ -31,4 +32,3 @@ def run_command():
 
 if __name__ == '__main__':
     app.run(host='localhost', port=3333)
-

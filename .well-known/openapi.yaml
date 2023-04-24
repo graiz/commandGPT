@@ -7,16 +7,20 @@ servers:
   - url: http://localhost:3333
 paths:
   /run:
-    get:
+    post:
       operationId: runCommand
       summary: Execute a shell command
-      parameters:
-        - name: command
-          in: query
-          description: The shell command to execute
-          required: true
-          schema:
-            type: string
+      requestBody:
+        description: The JSON object containing the shell command to execute
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                command:
+                  type: string
+                  description: The shell command to execute
       responses:
         "200":
           description: OK
@@ -46,4 +50,3 @@ components:
         error:
           type: string
           description: The error message, if any.
-
